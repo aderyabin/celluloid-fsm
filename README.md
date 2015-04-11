@@ -1,0 +1,2 @@
+# celluloid-fsm
+Simple finite state machines with integrated Celluloid timeout support.
