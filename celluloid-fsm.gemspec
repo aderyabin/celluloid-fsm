@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name         = 'celluloid-fsm'
-  gem.version      = '0.8.5'
+  gem.version      = '0.8.5.pre1'
   gem.platform     = Gem::Platform::RUBY
   gem.summary      = 'Celluloid Finite State Machines'
   gem.description  = 'Simple finite state machines with integrated Celluloid timeout support.'

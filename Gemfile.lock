@@ -16,7 +16,7 @@ GIT
 PATH
   remote: .
   specs:
-    celluloid-fsm (0.8.5)
+    celluloid-fsm (0.8.5.pre1)
       celluloid (~> 0.17.0)
 
 GEM
