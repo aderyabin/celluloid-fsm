@@ -1,12 +1,11 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/celluloid/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.name         = 'celluloid'
-  gem.version      = Celluloid::VERSION
+  gem.name         = 'celluloid-fsm'
+  gem.version      = '0.8.5'
   gem.platform     = Gem::Platform::RUBY
-  gem.summary      = ''
-  gem.description  = ''
+  gem.summary      = 'Celluloid Finite State Machines'
+  gem.description  = 'Simple finite state machines with integrated Celluloid timeout support.'
   gem.licenses     = ['MIT']
 
   gem.authors      = ["Tony Arcieri", "Tim Carey-Smith", "digitalextremist //"]
@@ -20,4 +19,5 @@ Gem::Specification.new do |gem|
   gem.require_path = 'lib'
 
   gem.add_development_dependency 'bundler'
+  gem.add_dependency "celluloid", "~> 0.17.0"
 end

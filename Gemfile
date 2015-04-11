@@ -3,6 +3,7 @@ gemspec development_group: :gem_build_tools
 
 gem 'coveralls', require: false
 
+gem 'celluloid', github: 'abstractive/celluloid', branch: 'master'
 
 group :development do
   gem 'pry'
