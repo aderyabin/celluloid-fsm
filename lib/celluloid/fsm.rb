@@ -1,3 +1,5 @@
+require 'celluloid' unless defined? Celluloid
+
 module Celluloid
   # Simple finite state machines with integrated Celluloid timeout support
   # Inspired by Erlang's gen_fsm (http://www.erlang.org/doc/man/gen_fsm.html)
