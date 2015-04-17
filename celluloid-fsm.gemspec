@@ -1,6 +1,4 @@
 # -*- encoding: utf-8 -*-
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name         = 'celluloid-fsm'
@@ -12,7 +10,7 @@ Gem::Specification.new do |gem|
 
   gem.authors      = ["Tony Arcieri", "Tim Carey-Smith", "digitalextremist //"]
   gem.email        = ['tony.arcieri@gmail.com', 'code@extremist.digital']
-  gem.homepage     = 'https://github.com/celluloid/'
+  gem.homepage     = 'https://github.com/celluloid/celluloid-fsm'
 
   gem.required_ruby_version     = '>= 1.9.2'
   gem.required_rubygems_version = '>= 1.3.6'
