@@ -17,7 +17,7 @@ group :test do
   gem 'benchmark_suite'
   gem 'rspec', '~> 3.2'
   gem 'rspec-retry'
-  gem 'celluloid', github: 'celluloid/celluloid', branch: '0.17.0-prerelease'
+  # gem 'celluloid', github: 'celluloid/celluloid', branch: '0.17.0-prerelease'
   gem 'rspec-log_split', github: 'abstractive/rspec-log_split', branch: 'master'
 end
 
