@@ -19,4 +19,5 @@ Gem::Specification.new do |gem|
   gem.require_path = 'lib'
 
   gem.add_development_dependency 'bundler'
+  gem.add_dependency 'celluloid-essentials', '0.20.0.pre1'
 end
