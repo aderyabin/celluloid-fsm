@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'coveralls', require: false
-#de gem 'celluloid', github: 'celluloid/celluloid', branch: "0.17.0-prerelease"
-#de gem 'celluloid-essentials', github: 'celluloid/celluloid', branch: 'master'
 
 gemspec development_group: :gem_build_tools
 
