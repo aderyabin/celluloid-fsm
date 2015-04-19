@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name         = 'celluloid-fsm'
-  gem.version      = '0.9.0.pre0'
+  gem.version      = '0.9.0.pre1'
   gem.platform     = Gem::Platform::RUBY
   gem.summary      = 'Celluloid Finite State Machines'
   gem.description  = 'Simple finite state machines with integrated Celluloid timeout support.'
@@ -21,4 +21,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'bundler'
   gem.add_runtime_dependency 'celluloid', '>= 0.17.0.pre0'
   gem.add_runtime_dependency 'celluloid-essentials', '>= 0.20.0.pre0'
+  gem.add_development_dependency 'celluloid-supervision', '>= 0.13.9.pre0'
+  gem.add_development_dependency 'celluloid-pool', '>= 0.10.0.pre0'
+
 end
