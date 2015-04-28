@@ -19,9 +19,9 @@ Gem::Specification.new do |gem|
   gem.require_path = 'lib'
 
   gem.add_development_dependency 'bundler'
-  gem.add_runtime_dependency 'celluloid', '>= 0.17.0.pre0'
-  gem.add_runtime_dependency 'celluloid-essentials', '>= 0.20.0.pre0'
-  gem.add_development_dependency 'celluloid-supervision', '>= 0.13.9.pre0'
-  gem.add_development_dependency 'celluloid-pool', '>= 0.10.0.pre0'
+  
+  gem.add_dependency "celluloid"
+  gem.add_dependency "celluloid-gems"
+  gem.add_dependency "celluloid-essentials"
 
 end

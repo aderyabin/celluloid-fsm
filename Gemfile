@@ -24,3 +24,5 @@ end
 group :gem_build_tools do
   gem 'rake'
 end
+
+gem 'celluloid', github: 'celluloid/celluloid', branch: '0.17.0-prerelease'
