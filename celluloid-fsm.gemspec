@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name         = 'celluloid-fsm'
-  gem.version      = '0.9.0.pre1'
+  gem.version      = '0.9.0.pre'
   gem.platform     = Gem::Platform::RUBY
   gem.summary      = 'Celluloid Finite State Machines'
   gem.description  = 'Simple finite state machines with integrated Celluloid timeout support.'
@@ -18,10 +18,12 @@ Gem::Specification.new do |gem|
   gem.files        = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|examples|spec|features)/}) }
   gem.require_path = 'lib'
 
-  gem.add_development_dependency 'bundler'
-  
-  gem.add_dependency "celluloid"
-  gem.add_dependency "celluloid-gems"
-  gem.add_dependency "celluloid-essentials"
+  gem.add_development_dependency "bundler"
+  gem.add_development_dependency "celluloid"
+  gem.add_development_dependency "celluloid-essentials"
+  gem.add_development_dependency "celluloid-supervision"
+  gem.add_development_dependency "celluloid-extras"
+  gem.add_development_dependency "celluloid-pool"
+  gem.add_development_dependency "timers", "~> 4.0.0"
 
 end
