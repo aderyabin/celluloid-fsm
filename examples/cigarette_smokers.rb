@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 
-require 'rubygems'
-require 'bundler/setup'
-require 'celluloid/autostart'
-require 'celluloid/fsm'
+require "rubygems"
+require "bundler/setup"
+require "celluloid/autostart"
+require "celluloid/fsm"
 
 #
 # THE CIGARETTE SMOKERS PROBLEM
@@ -43,11 +43,11 @@ class Smoker
 
     default_state :standing
 
-    state :waiting, :to => :procuring do
+    state :waiting, to: :procuring do
       actor.check_table
     end
 
-    state :procuring, :to => [:waiting, :smoking] do
+    state :procuring, to: [:waiting, :smoking] do
       if actor.take_items
         transition :smoking
       else
@@ -78,7 +78,7 @@ class Smoker
   end
 
   attr_accessor :smoking
-  alias_method  :smoking?, :smoking
+  alias_method :smoking?, :smoking
 
   def name
     "#{@commodity} Guy"
@@ -149,7 +149,7 @@ class Smoker
   def find_item(items, type)
     return @commodity.new if type == @commodity
     item = items.find { |i| i.class == type }
-    raise "can't find any #{type}" unless item
+    fail "can't find any #{type}" unless item
     item
   end
 
@@ -161,7 +161,7 @@ class Smoker
     puts "#{name} enjoys a smoke"
     @cigarette.smoke
 
-    @machine.transition :done, :delay => @rate * 5
+    @machine.transition :done, delay: @rate * 5
   end
 
   def complimentary?(items)
@@ -246,11 +246,11 @@ class Table
     abort RuntimeError.new("there's already stuff on the table") if @items
     @items = items
     puts "Table now contains: #{items.map(&:class).join(', ')}"
-    return @items
+    @items
   end
 
   def take
-    raise "there's nothing on the table" unless @items
+    fail "there's nothing on the table" unless @items
     items = @items
     @items = nil
     items
@@ -276,7 +276,10 @@ class Paper
   def roll(tobacco)
     Cigarette.new(tobacco, self)
   end
-  def burn; [:ash]; end
+
+  def burn
+    [:ash]
+  end
 end
 
 class Matches
@@ -284,8 +287,13 @@ class Matches
     @lit = false
   end
 
-  def light; @lit = true; end
-  def lit?; @lit; end
+  def light
+    @lit = true
+  end
+
+  def lit?
+    @lit
+  end
 end
 
 class Cigarette
@@ -298,10 +306,12 @@ class Cigarette
     @lit = true if match.lit?
   end
 
-  def lit?; @lit end
+  def lit?
+    @lit
+  end
 
   def smoke
-    raise "not lit" unless @lit
+    fail "not lit" unless @lit
     @tobacco.burn + @paper.burn
   end
 end
