@@ -191,9 +191,4 @@ RSpec.configure do |config|
     Celluloid.logger = Specs.logger
     example.run
   end
-
-  # Must be *after* the around hook above
-  require 'rspec/retry'
-  config.verbose_retry = true
-  config.default_sleep_interval = 3
 end
