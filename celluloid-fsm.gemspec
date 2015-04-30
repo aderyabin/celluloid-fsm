@@ -1,4 +1,5 @@
 # -*- encoding: utf-8 -*-
+require File.expand_path("../culture/sync", __FILE__)
 
 Gem::Specification.new do |gem|
   gem.name         = 'celluloid-fsm'
@@ -18,12 +19,5 @@ Gem::Specification.new do |gem|
   gem.files        = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|examples|spec|features)/}) }
   gem.require_path = 'lib'
 
-  gem.add_development_dependency "bundler"
-  gem.add_development_dependency "celluloid"
-  gem.add_development_dependency "celluloid-essentials"
-  gem.add_development_dependency "celluloid-supervision"
-  gem.add_development_dependency "celluloid-extras"
-  gem.add_development_dependency "celluloid-pool"
-  gem.add_development_dependency "timers", "~> 4.0.0"
-
+  Celluloid::Sync.gems(gem)
 end
