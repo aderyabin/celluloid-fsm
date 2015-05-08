@@ -3,7 +3,7 @@ require File.expand_path("../culture/sync", __FILE__)
 
 Gem::Specification.new do |gem|
   gem.name         = "celluloid-fsm"
-  gem.version      = "0.9.0.pre12"
+  gem.version      = "0.9.0.pre13"
   gem.platform     = Gem::Platform::RUBY
   gem.summary      = "Celluloid Finite State Machines"
   gem.description  = "Simple finite state machines with integrated Celluloid timeout support."
