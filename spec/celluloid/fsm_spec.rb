@@ -1,29 +1,3 @@
-class TestMachine
-  include Celluloid::FSM
-
-  def initialize
-    super
-    @fired = false
-  end
-
-  state :callbacked do
-    @fired = true
-  end
-
-  state :pre_done, to: :done
-  state :another, :done
-
-  def fired?
-    @fired
-  end
-end
-
-class CustomDefaultMachine
-  include Celluloid::FSM
-
-  default_state :foobar
-end
-
 RSpec.describe Celluloid::FSM, actor_system: :global do
   subject { TestMachine.new }
 
@@ -53,8 +27,8 @@ RSpec.describe Celluloid::FSM, actor_system: :global do
   end
 
   context "with a dummy actor attached" do
-    let(:delay_interval) { CelluloidSpecs::TIMER_QUANTUM * 10 }
-    let(:sleep_interval) { delay_interval + CelluloidSpecs::TIMER_QUANTUM * 10 }
+    let(:delay_interval) { Specs::TIMER_QUANTUM * 10 }
+    let(:sleep_interval) { delay_interval + Specs::TIMER_QUANTUM * 10 }
 
     let(:dummy) do
       Class.new do
