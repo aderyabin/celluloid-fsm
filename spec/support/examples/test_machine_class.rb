@@ -23,3 +23,10 @@ class CustomDefaultMachine
 
   default_state :foobar
 end
+
+class AnotherCustomDefaultMachine
+  include Celluloid::FSM
+
+  state :foo, default: true
+  state :bar
+end
