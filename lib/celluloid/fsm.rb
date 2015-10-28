@@ -27,12 +27,16 @@ module Celluloid
     module ClassMethods
       # Obtain or set the default state
       # Passing a state name sets the default state
-      def default_state(new_default = nil)
+      def default_state(new_default = nil, &block)
         if new_default
           @default_state = new_default.to_sym
         else
-          defined?(@default_state) ? @default_state : DEFAULT_STATE
+          @default_state ||= DEFAULT_STATE
         end
+
+        states[@default_state] || state(@default_state, &block)
+
+        @default_state
       end
 
       # Obtain the valid states for this FSM
@@ -53,8 +57,8 @@ module Celluloid
 
         args.each do |name|
           name = name.to_sym
-          default_state name if options["default"]
           states[name] = State.new(name, options["to"], &block)
+          default_state name if options["default"]
         end
       end
     end
@@ -63,7 +67,8 @@ module Celluloid
 
     # Be kind and call super if you must redefine initialize
     def initialize(actor = nil)
-      @state = self.class.default_state
+      @state = nil
+      transition self.class.default_state
       @delayed_transition = nil
       @actor = actor
       @actor ||= Celluloid.current_actor if Celluloid.actor?
@@ -109,7 +114,7 @@ module Celluloid
 
       return if current_state_name == state_name
 
-      if current_state and !current_state.valid_transition? state_name
+      if current_state && !current_state.valid_transition?(state_name)
         valid = current_state.transitions.map(&:to_s).join(", ")
         fail ArgumentError, "#{self.class} can't change state from '#{@state}' to '#{state_name}', only to: #{valid}"
       end

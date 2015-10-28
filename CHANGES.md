@@ -1,6 +1,6 @@
 0.20.6 (2015-)
 -----
-* 
+* Improve default state to accept block
 
 0.20.5 (2015-09-30)
 -----

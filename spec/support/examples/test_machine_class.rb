@@ -23,3 +23,21 @@ class CustomDefaultMachine
 
   default_state :foobar
 end
+
+class OptionDefaultTestMachine
+  include Celluloid::FSM
+
+  state :foobar, default: true
+end
+
+class ComplexTextMachine
+  include Celluloid::FSM
+
+  default_state :fired do
+    @fired = true
+  end
+
+  def fired?
+    @fired
+  end
+end

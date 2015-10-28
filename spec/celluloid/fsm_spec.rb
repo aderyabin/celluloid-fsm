@@ -1,10 +1,6 @@
 RSpec.describe Celluloid::FSM, actor_system: :global do
   subject { TestMachine.new }
 
-  it "starts in the default state" do
-    expect(subject.state).to eq(TestMachine.default_state)
-  end
-
   it "transitions between states" do
     expect(subject.state).not_to be :done
     subject.transition :done
@@ -17,13 +13,33 @@ RSpec.describe Celluloid::FSM, actor_system: :global do
     expect(subject).to be_fired
   end
 
-  it "allows custom default states" do
-    expect(CustomDefaultMachine.new.state).to be :foobar
-  end
-
   it "supports constraints on valid state transitions" do
     subject.transition :pre_done
     expect { subject.transition :another }.to raise_exception ArgumentError
+  end
+
+  context "default state" do
+    it "starts on initialize" do
+      expect(subject.state).to eq(TestMachine.default_state)
+    end
+
+    it "allows custom" do
+      expect(CustomDefaultMachine.new.state).to be :foobar
+    end
+
+    it "allows as option" do
+      expect(CustomDefaultMachine.new.state).to be :foobar
+    end
+
+    it "accepts block" do
+      expect(ComplexTextMachine.new).to be_fired
+    end
+  end
+
+  context ".states" do
+    it "has default state" do
+      expect(TestMachine.states[:default]).to_not be nil
+    end
   end
 
   context "with a dummy actor attached" do
