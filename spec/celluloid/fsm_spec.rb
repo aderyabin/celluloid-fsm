@@ -42,6 +42,18 @@ RSpec.describe Celluloid::FSM, actor_system: :global do
     end
   end
 
+  context "dynamic defined methods" do
+    it 'checks state' do
+      expect(AnotherCustomDefaultMachine.new.foo?).to be true
+    end
+
+    it 'set state' do
+      state_machine = AnotherCustomDefaultMachine.new
+      state_machine.bar!
+      expect(state_machine.state).to be :bar
+    end
+  end
+
   context "with a dummy actor attached" do
     let(:delay_interval) { Specs::TIMER_QUANTUM * 10 }
     let(:sleep_interval) { delay_interval + Specs::TIMER_QUANTUM * 10 }

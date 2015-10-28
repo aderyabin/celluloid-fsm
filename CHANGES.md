@@ -1,6 +1,7 @@
 0.20.6 (2015-)
 -----
 * Improve default state to accept block
+* Add dynamic methods to check and transition state
 
 0.20.5 (2015-09-30)
 -----

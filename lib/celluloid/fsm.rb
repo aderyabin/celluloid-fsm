@@ -59,6 +59,15 @@ module Celluloid
           name = name.to_sym
           states[name] = State.new(name, options["to"], &block)
           default_state name if options["default"]
+
+          instance_eval do
+            unless respond_to?("#{name}?")
+              define_method("#{name}?") { current_state.name == name }
+            end
+            unless respond_to?("#{name}!")
+              define_method("#{name}!") { transition name }
+            end
+          end
         end
       end
     end
